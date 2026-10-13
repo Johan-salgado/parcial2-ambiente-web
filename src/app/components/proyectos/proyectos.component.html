@@ -1,0 +1,16 @@
+<section class="card mb-4">
+  <div class="card-body">
+    <h2 class="card-title h4">Experiencia y proyectos realizados</h2>
+    <div class="row">
+      @for (proyecto of proyectos; track proyecto.nombre) {
+        <div class="col-md-6 mb-3">
+          <h3 class="h6">{{ proyecto.nombre }}</h3>
+          <p class="mb-1">{{ proyecto.descripcion }}</p>
+          @for (tec of proyecto.tecnologias; track tec) {
+            <span class="badge text-bg-primary me-1">{{ tec }}</span>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>

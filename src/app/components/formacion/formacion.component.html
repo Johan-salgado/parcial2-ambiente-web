@@ -1,0 +1,16 @@
+<section class="card h-100">
+  <div class="card-body">
+    <h2 class="card-title h4">Formación académica</h2>
+    <ul class="list-group list-group-flush">
+      @for (estudio of estudios; track estudio.titulo) {
+        <li class="list-group-item px-0">
+          <strong>{{ estudio.titulo }}</strong>
+          @if (estudio.institucion) {
+            <div>{{ estudio.institucion }}</div>
+          }
+          <span class="badge text-bg-secondary">{{ estudio.estado }}</span>
+        </li>
+      }
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,17 @@
+<section class="card mb-4">
+  <div class="card-body">
+    <h2 class="card-title h4">Conocimientos y habilidades</h2>
+    @for (habilidad of habilidades; track habilidad.nombre) {
+      <div class="mb-3">
+        <div class="d-flex justify-content-between">
+          <span>{{ habilidad.nombre }}</span>
+          <span class="text-body-secondary">{{ habilidad.nivel }}</span>
+        </div>
+        <div class="progress" role="progressbar" [attr.aria-label]="habilidad.nombre"
+          [attr.aria-valuenow]="habilidad.porcentaje" aria-valuemin="0" aria-valuemax="100">
+          <div class="progress-bar" [style.width.%]="habilidad.porcentaje"></div>
+        </div>
+      </div>
+    }
+  </div>
+</section>

@@ -1,0 +1,17 @@
+<section class="card h-100">
+  <div class="card-body">
+    <h2 class="card-title h4">Contacto</h2>
+    <ul class="list-unstyled mb-0">
+      @for (contacto of contactos; track contacto.tipo) {
+        <li class="mb-1">
+          <strong>{{ contacto.tipo }}:</strong>
+          @if (contacto.enlace) {
+            <a [href]="contacto.enlace" target="_blank" rel="noopener">{{ contacto.valor }}</a>
+          } @else {
+            {{ contacto.valor }}
+          }
+        </li>
+      }
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,4 @@
+/* Estilos globales. El tema oscuro se activa con data-bs-theme="dark" en index.html */
+body {
+  min-height: 100vh;
+}

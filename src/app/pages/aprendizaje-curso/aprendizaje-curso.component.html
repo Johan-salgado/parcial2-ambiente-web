@@ -1,0 +1,61 @@
+<h1 class="mb-4">Aprendizaje del curso</h1>
+<p class="text-body-secondary">
+  Resumen de lo visto en Programación en Ambiente Web I: temas, conceptos clave, actividades y tecnologías.
+</p>
+
+<h2 class="h4 mt-4">Temas estudiados</h2>
+<div class="row">
+  @for (tema of temas; track tema.id) {
+    <div class="col-md-6 col-lg-3 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h3 class="card-title h5">{{ tema.nombre }}</h3>
+          <span class="badge text-bg-secondary mb-2">{{ tema.categoria }}</span>
+          <p class="card-text">{{ tema.descripcion }}</p>
+          <ul class="mb-0 ps-3">
+            @for (concepto of tema.conceptos; track concepto) {
+              <li>{{ concepto }}</li>
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  } @empty {
+    <p>No hay temas para mostrar.</p>
+  }
+</div>
+
+<h2 class="h4 mt-2">Proyectos y actividades desarrollados</h2>
+<div class="table-responsive mb-4">
+  <table class="table table-hover align-middle">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Tipo</th>
+        <th>Descripción</th>
+        <th>Repositorio</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (actividad of actividades; track actividad.id) {
+        <tr>
+          <td>{{ actividad.nombre }}</td>
+          <td><span class="badge text-bg-info">{{ actividad.tipo }}</span></td>
+          <td>{{ actividad.descripcion }}</td>
+          <td><a [href]="actividad.enlace" target="_blank" rel="noopener">Ver en GitHub</a></td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="4">No hay actividades para mostrar.</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+</div>
+
+<h2 class="h4">Tecnologías utilizadas</h2>
+<div>
+  @for (tec of tecnologias; track tec) {
+    <span class="badge text-bg-primary me-2 mb-2 fs-6">{{ tec }}</span>
+  }
+</div>

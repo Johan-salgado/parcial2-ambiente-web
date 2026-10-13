@@ -1,0 +1,31 @@
+<h1 class="mb-2">Mis videojuegos favoritos</h1>
+<p class="text-body-secondary">Algunos de los juegos que más me gustan. Puedes filtrarlos por categoría.</p>
+
+<div class="mb-4">
+  @for (categoria of categorias; track categoria) {
+    <button type="button" class="btn me-2 mb-2"
+      [class.btn-primary]="categoria === categoriaSeleccionada"
+      [class.btn-outline-primary]="categoria !== categoriaSeleccionada"
+      (click)="seleccionarCategoria(categoria)">
+      {{ categoria }}
+    </button>
+  }
+</div>
+
+<div class="row">
+  @for (juego of juegosFiltrados; track juego.id) {
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h2 class="card-title h5">{{ juego.titulo }}</h2>
+          <h3 class="card-subtitle h6 mb-2 text-body-secondary">{{ juego.desarrollador }} - {{ juego.anio }}</h3>
+          <span class="badge text-bg-secondary mb-2">{{ juego.categoria }}</span>
+          <p class="card-text">{{ juego.descripcion }}</p>
+        </div>
+        <div class="card-footer text-body-secondary">{{ juego.plataformas }}</div>
+      </div>
+    </div>
+  } @empty {
+    <p>No hay videojuegos en esta categoría.</p>
+  }
+</div>
